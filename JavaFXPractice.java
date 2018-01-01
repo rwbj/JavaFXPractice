@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class JavaFXPractice extends Application implements EventHandler<ActionEvent>{//ActionEvent is a mouse click
+public class JavaFXPractice extends Application {//implements EventHandler<ActionEvent>{//ActionEvent is a mouse click
 
     public static void main(String[] args){
         launch(args);//this method calls the start method bellow
@@ -25,8 +25,11 @@ public class JavaFXPractice extends Application implements EventHandler<ActionEv
         primeStage.setTitle("Rob's FX window");
         bttn = new Button();
         bttn.setText("I'm a button");
-        bttn.setOnAction(this);//this calls the handle method found in the class given as an arg. use another class (that implements EventHandler) as the arg to use an external event handler class
-
+        bttn.setOnAction(e -> {
+            System.out.println("hey, look at me!");
+            System.out.println("this is a change!");
+        });
+        
         StackPane layout = new StackPane();
         layout.getChildren().add(bttn);
 
@@ -34,13 +37,6 @@ public class JavaFXPractice extends Application implements EventHandler<ActionEv
         primeStage.setScene(scn);
         primeStage.show();
 
-    }
-
-    @Override
-    public void handle(ActionEvent event){
-        if(event.getSource()==bttn){//this will select event only from the bttn
-            System.out.println("this guy is an ass");
-        }
     }
 
 }
