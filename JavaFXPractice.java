@@ -25,7 +25,10 @@ public class JavaFXPractice extends Application {//implements EventHandler<Actio
         primeStage.setTitle("Rob's FX window");
         bttn = new Button();
         bttn.setText("I'm a button");
-        bttn.setOnAction(e -> System.out.print("hey, look at me!"));
+        bttn.setOnAction(e -> {
+            System.out.println("hey, look at me!");
+            System.out.println("this is a change!");
+        });
         
         StackPane layout = new StackPane();
         layout.getChildren().add(bttn);
