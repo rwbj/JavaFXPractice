@@ -9,8 +9,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+//import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.shape.Circle;
 
 public class JavaFXPractice extends Application implements EventHandler<ActionEvent>{//ActionEvent is a mouse click
 
@@ -27,8 +30,11 @@ public class JavaFXPractice extends Application implements EventHandler<ActionEv
         bttn.setText("I'm a button");
         bttn.setOnAction(this);//this calls the handle method found in the class given as an arg. use another class (that implements EventHandler) as the arg to use an external event handler class
 
-        StackPane layout = new StackPane();
-        layout.getChildren().add(bttn);
+        Pane layout = new Pane();
+        Circle cir = new Circle(100, 100, 10, Color.AQUA);
+        //cir.setLayoutX(20);cir.setLayoutY(20);
+        layout.getChildren().addAll(bttn,cir);
+        System.out.println("cir location: "+cir.getCenterX()+" "+cir.getCenterY());
 
         Scene scn = new Scene(layout, 300, 200);
         primeStage.setScene(scn);
@@ -39,7 +45,7 @@ public class JavaFXPractice extends Application implements EventHandler<ActionEv
     @Override
     public void handle(ActionEvent event){
         if(event.getSource()==bttn){//this will select event only from the bttn
-            System.out.println("this guy is an ass");
+            System.out.println("this guy is an asset");
         }
     }
 
